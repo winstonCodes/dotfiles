@@ -16,6 +16,7 @@ set termguicolors
 set path+=**
 set splitright
 set splitbelow
+" set term=xterm
 
 set nocompatible
 filetype plugin on
@@ -25,15 +26,13 @@ syntax on
 cab numb set number! relativenumber!
 cab noh :nohlsearch
 
-nnoremap <leader>ev :vsplit /Users/winstonsmith/.vimrc<cr><C-w>r
+nnoremap <leader>ev :vsplit ~/.vimrc<cr><C-w>r
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
-nnoremap <leader>b :nohlsearch<CR><C-L>
-
-" nnoremap <silent><C-l> :nohlsearch<CR><C-L>
+nnoremap <leader>l :nohlsearch<CR><C-L>
 
 nnoremap <leader>g :Goyo<CR>
-nnoremap <leader>l :Limelight!!<CR>
+nnoremap <leader>gg :Limelight!!<CR>
 
 nnoremap <leader>f :FZF<CR>
 
@@ -42,13 +41,24 @@ nnoremap <leader>q :q<CR>
 
 nnoremap <leader>n :bn<CR>
 nnoremap <leader>p :bp<CR>
-nnoremap <leader>x :bd<CR>
+nnoremap <leader>x :bd!<CR>
 
-nnoremap <F5> :buffers<CR>:buffer<Space>
+nnoremap <leader>s :set spell!<CR>
+
+nnoremap <leader>t :terminal<CR>
+
+nnoremap <leader>r :registers<CR>
+
+nnoremap <leader>, <C-w>w
+
+nnoremap <leader><leader> "+
+
+nnoremap <leader>b :buffers<CR>:buffer<Space>
 
 "nnoremap , <C-w>w
 
-nnoremap <Space> @q
+"nnoremap <Space> @@
+nnoremap <Space> @
 
 nnoremap D dd
 
@@ -101,33 +111,34 @@ call plug#begin('~/.vim/plugged')
     Plug 'craigemery/vim-autotag'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'urbainvaes/vim-tmux-pilot'
-    Plug 'morhetz/gruvbox'
     Plug 'psliwka/vim-smoothie'
     Plug 'junegunn/goyo.vim'
     Plug 'junegunn/limelight.vim'
-    Plug 'mhinz/vim-janah'
-    Plug 'mhartington/oceanic-next'
-    Plug 'danilo-augusto/vim-afterglow'
     Plug 'xolox/vim-colorscheme-switcher'
     Plug 'xolox/vim-misc'
-    Plug 'zacanger/angr.vim'
-    Plug 'whatyouhide/vim-gotham'
-    Plug 'junegunn/seoul256.vim'
-    Plug 'AlessandroYorba/Sierra'
-    Plug 'liuchengxu/space-vim-dark'
-    Plug 'marcopaganini/termschool-vim-theme'
-    Plug 'Rigellute/shades-of-purple.vim'
-    Plug 'haishanh/night-owl.vim'
-    Plug 'jacoborus/tender.vim'
     Plug 'ap/vim-css-color'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-    Plug 'dracula/vim', { 'as': 'dracula' }
-    Plug 'arcticicestudio/nord-vim'
     Plug 'mileszs/ack.vim'
-    Plug 'arzg/vim-colors-xcode'
     Plug 'tpope/vim-unimpaired'
     Plug 'vimwiki/vimwiki'
-    Plug 'hardselius/warlock'
+    " -----Color Schemes-----
+    Plug 'arzg/vim-colors-xcode'
+    " Plug 'hardselius/warlock'
+    " Plug 'jacoborus/tender.vim'
+    " Plug 'haishanh/night-owl.vim'
+    " Plug 'Rigellute/shades-of-purple.vim'
+    " Plug 'liuchengxu/space-vim-dark'
+    " Plug 'marcopaganini/termschool-vim-theme'
+    " Plug 'AlessandroYorba/Sierra'
+    " Plug 'junegunn/seoul256.vim'
+    Plug 'whatyouhide/vim-gotham'
+    " Plug 'zacanger/angr.vim'
+    Plug 'danilo-augusto/vim-afterglow'
+    " Plug 'mhartington/oceanic-next'
+    " Plug 'mhinz/vim-janah'
+    Plug 'morhetz/gruvbox'
+    " Plug 'arcticicestudio/nord-vim'
+    " Plug 'dracula/vim', { 'as': 'dracula' }
 
 
 call plug#end()
@@ -146,11 +157,11 @@ let g:goyo_linenr = 1
  
 let g:gruvbox_contrast_dark = 'hard'
 let g:sierra_Twilight = 1
-autocmd Colorscheme janah highlight Normal ctermbg=235
+" autocmd Colorscheme janah highlight Normal ctermbg=235
 let g:seoul256_background = 234
 let g:space_vim_dark_background = 234
 
-color afterglow
+color gotham256
 
 " coc config
 let g:coc_global_extensions = [
@@ -227,7 +238,7 @@ autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 let g:colorscheme_switcher_exclude_builtins = 1
-let g:colorscheme_switcher_exclude = ['OceanicNextLight', 'seoul256-light', 'gotham', 'space-vim-dark', 'xcodelight']
+let g:colorscheme_switcher_exclude = ['OceanicNextLight', 'seoul256-light', 'gotham', 'space-vim-dark', 'xcodelight', 'gruvbox']
 
 
 " Prettier Config
